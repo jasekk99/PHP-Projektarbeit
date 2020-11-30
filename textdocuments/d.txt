@@ -1,0 +1,11 @@
+24.11.2020, 11:45|||a|||s|||<?php
+              foreach (glob("*.txt") as $name) {
+                $daten= file_get_contents("$name");
+	              $alles = explode("|||", $daten);
+                $datum= $alles[0];
+                $titel = $alles[1];
+                $text = $alles[2];
+                $autor = $alles[3];
+                echo "<div><p>$datum</p><h1>$titel</h1><p>$text</p><p>$autor</p></div>";
+              }
+            ?>

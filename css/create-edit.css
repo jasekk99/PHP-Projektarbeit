@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+body {
+    height: 100vh;
+    font-family:helvetica, sans-serif;
+}
+
+form {
+    padding: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+.messagebox:focus{
+    border-color:green;
+}
+.vorname:focus.author:focus{
+    border-color:#1e272e;
+}
+.author,.ueberschrift,.filename{
+    border:none;
+    border-bottom:3px solid #718093;
+    background-color: rgb(218, 218, 218);
+    width:100%;
+    height:40px;
+    font-size:20px;
+    margin-bottom: 30px;
+    animation:fadeGrey 2s ease-in-out;
+}
+.messagebox{
+    border:solid #718093 3px;
+    border-bottom:3px solid #718093;
+    width:100%;
+    font-size:20px;
+    resize: none;
+}
+
+input[type=submit]{
+    width:30%;
+    align-self:center;
+    height:60px;
+    margin-top:35px;
+
+}
+
+.messagebox,input[type=file] {
+    margin-top:20px;
+    margin-bottom:10px;
+    font-size: 20px;
+}
+
+.formular{
+    background-color: rgb(218, 218, 218);
+    animation: moveUp 1s ease-in-out;
+    animation-fill-mode: forwards;
+}
+form{
+    animation:fadeGrey 2s ease-in-out;
+    animation-fill-mode: forwards;
+}
+@keyframes moveUp{
+    from{margin-top:50%;}
+    to{margin-top:0%;}
+}
+@keyframes fadeGrey{
+    from{background-color: white;}
+    to{background-color: rgb(218, 218, 218);}
+}
