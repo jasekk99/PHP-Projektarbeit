@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/global.css">
-</head>
-<header>
-            <a href="index.php" id="jacksnewsLink"><h1 class="jacksnews">Jacks News</h1></a>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>News</title>
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/global.css">
+    </head>
+    <header>
+        <a href="index.php" id="jacksnewsLink"><h1 class="jacksnews">Jacks News</h1></a>
             <!-- Navbar -->
             <div>
                 <ul>
@@ -17,8 +17,8 @@
                     <li><a href="manage.php">Manage</a></li>
                 </ul>
             </div>
-            <h1 style="margin-left:30px;margin-top:40px;margin-right:30px">News</h1>
-</header>
+        <h1 style="margin-left:30px;margin-top:40px;margin-right:30px">News</h1>
+    </header>
 <body>
     <div id="alleBeiträge">
         <?php

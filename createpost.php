@@ -44,7 +44,7 @@
             </form>
         </div>
         <?php
-            /*Schreibt Datei*/
+            /* Nur wenn der Submit Button Gedrückt wird, wird der unten stehender Code ausgeführt */
             if(isset($_POST['submit'])){
 
             $filetxt = $_POST['filename'];/* Die Text-Dateiname heisst jetzt einfach $filetxt statt $fileName da es unten für das Bild verwendet wird*/
@@ -66,7 +66,6 @@
             if($fileActualExt === "jpg") {            
                 if($fileFehler=== 0) {                           
                     if($fileGroesse< 10000000) { 
-
                         $fileZiel = "images/".$filetxt.".jpg";
                         move_uploaded_file($fileTmpName, $fileZiel);
             }else{
@@ -79,19 +78,21 @@
                         echo "Ihr Bild muss ein JPG image sein !";
                     }
 
-            /*Schreibt .txt document*/
+            /*||.txt Datei Code||*/
             $filename = "textdocuments/".$filetxt.".txt";
+            /* Existiert dieser .txt Datei schon? */
             if(file_exists($filename)){echo "THIS FILE ALREADY EXISTS!";}
             else{
+                /* Wenn nicht, kreeiert und setzt die eingegebenen Werte in die Datei*/
                 $inhalt = date("d.m.Y, H:i")."|||".$ueberschrift."|||".$author."|||".$main;
                 file_put_contents($filename, $inhalt);
                 }
             }
         ?>
-<footer>
-    <div id="footer-copyright">
-        <u>Copyright©  - Jack Green</u>
-    </div>
-</footer>
+        <footer>
+            <div id="footer-copyright">
+            <u>Copyright©  - Jack Green</u>
+            </div>
+        </footer>
     </body>
-    </html>
+</html>
