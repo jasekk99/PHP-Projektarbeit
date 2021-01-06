@@ -4,17 +4,15 @@ body{
     font-family: helvetica, sans-serif;
     margin: 0px;
 }
-#newsbox{
+.newsbox{
     border: black solid 3px;
     background-color: whitesmoke;
     margin: 1%;
     padding: 1%;
-    animation:moveUp 0.8s ease-in-out;
-    animation-fill-mode: forwards;
     transition-property: box-shadow;
     transition-duration: 500ms;
 }
-#newsbox:hover{
+.newsbox:hover{
     box-shadow:
         0 5.6px 4.4px rgba(0, 0, 0, 0.034),
         0 13.4px 10.6px rgba(0, 0, 0, 0.048),
@@ -24,10 +22,6 @@ body{
         0 200px 160px rgba(0, 0, 0, 0.12);
 }
 
-@keyframes moveUp{
-    from{margin-top: 40%;}
-    to{margin-top: 1%;}
-}
 @keyframes fadeGrey{
     from{background-color: white;}
     to{background-color: rgb(218, 218, 218);}
@@ -37,18 +31,18 @@ body{
     font-size: 50px;
     margin-left: 30px;
 }
-#ueberschrift{
+.ueberschrift{
     font-size:60px;
     color: green;
 }
-#datum{
+.datum{
     font-size:20px;
 }
-#author{
+.author{
 
 }
-#main{
-        
+.main{
+    word-wrap: break-word;
 }
 img{
     width: 300px;

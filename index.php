@@ -12,7 +12,7 @@
             <!-- Navbar -->
             <div>
                 <ul>
-                    <li><a class="active" href="index.php">Home</a></li>
+                    <li><a class="active" href="index.php">News</a></li>
                     <li><a href="createpost.php">Beitrag Erstellen</a></li>
                     <li><a href="manage.php">Manage</a></li>
                 </ul>
@@ -39,13 +39,13 @@
             }else{
                 $image = "";      
             }
-            echo "<div id='newsbox'>
-                <h2 id='ueberschrift'>".$ueberschrift."</h2>
-                <h3 id='datum'>".$datum."</h3>
+            echo "<div class='newsbox'>
+                <h2 class='ueberschrift'>".$ueberschrift."</h2>
+                <h3 class='datum'>".$datum."</h3>
                 <hr>
-                <h2 id='author'>".$author."</h2>
-                <p id='main'>".$main."</p></br>
-                <div id='image'>".$image."</div>
+                <h2 class='author'>".$author."</h2>
+                <p class='main'>".$main."</p><br>
+                <div class='image'>".$image."</div>
                 </div>";
             }
         ?>

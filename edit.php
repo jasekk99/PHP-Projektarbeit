@@ -2,9 +2,11 @@
     //Liest Varuablen aus dem URL
     $daten = $_GET['postContents'];
     $filenameCurrent = $_GET['fileName'];
+
     //Teilt alle Elemente des Posts auf
     $alles = explode("|||", $daten);
 
+    //Setzt Variablen für alle Elemente des .txt Datei
     $datum = $alles[0]; 
     $ueberschrift = $alles[1];
     $author = $alles[2];
@@ -27,7 +29,7 @@
             <!-- Navbar -->
             <div>
                 <ul>
-                    <li><a href="index.php">Home</a></li>
+                    <li><a href="index.php">News</a></li>
                     <li><a href="createpost.php">Beitrag Erstellen</a></li>
                     <li><a href="manage.php">Manage</a></li>
                 </ul>
@@ -38,10 +40,10 @@
         <div class="formular">
             <form enctype="multipart/form-data" action="" method="post">
                 <label><h3>Datei Name</h3>
-                <input type="text" name="filenameEdit" value="<?php echo $filenameTrim ?>" class="filename" required>
+                <input type="text" name="filenameEdit" value="<?php echo $filenameTrim ?>" class="filename"  readonly required>
                 </label>
 
-                <label><h3>Author</h3>
+                <label><h3>Autor</h3>
                 <input type="text" name="author" value="<?php echo $author ?>" class="author" required>
                 </label>
                     
@@ -58,26 +60,35 @@
             </div>
 <?php
  if(isset($_POST['submit'])){
-            /*$filenameNew = $_POST['filenameEdit'];
-            /*Lädt Bild hoch*/
-            /*$file= $_FILES['file'];
+            $filetxt = $_POST['filenameEdit'];/* Die Text-Dateiname heisst jetzt einfach $filetxt statt $fileName da es unten für das Bild verwendet wird*/
+            $author = $_POST['author'];
+            $ueberschrift = $_POST['ueberschrift'];
+            $main = $_POST['message'];
+            //Löscht originales Bild
+            $filenameTXT = $_GET['fileName'];
+            $filenameIMGtrim = trim($filenameTXT,"textdocuments/.txt");
+            $filenameIMG = "images/".$filenameIMGtrim.".jpg";
+            //Löscht originales Bild nur wenn es überhaupt eins mit dem gleichen namen vorher gegeben hat, wenn keins existiert wird dieser Schritt übersprungen
+            if (file_exists($filenameIMG)){
+            unlink($filenameIMG);
+            }
+            //Bild Bearbeiten
+            $file= $_FILES['file'];
 	        $fileName= $_FILES['file']['name'];
 	        $fileTmpName= $_FILES['file']['tmp_name']; 
 	        $fileFehler= $_FILES['file']['error']; 
             $fileTyp= $_FILES['file']['type'];
             $fileGroesse= $_FILES['file']['size'];
-            
-            $fileZiel1 = "images/".$filenameCurrent.".jpg";
-            $fileArt = explode('.',$filenameCurrent);
-            $fileActualExt= strtolower(end($fileArt));
-            unlink($fileNameSplit);
 
+            $fileArt = explode('.',$fileName);
+            $fileActualExt= strtolower(end($fileArt));
 
             if($fileActualExt === "jpg") {            
                 if($fileFehler=== 0) {                           
-                    if($fileGroesse< 10000000) { 
-                        $fileZiel2 = "images/".$filenameNew.".jpg";
-                        move_uploaded_file($fileTmpName, $fileZiel2);
+                    if($fileGroesse< 1000000) { 
+                        $fileZiel = "images/".$filetxt.".jpg";
+                        move_uploaded_file($fileTmpName, $fileZiel);
+                        header('Location: index.php');
             }else{
                 echo"Das File ist zu gross !";
             }
@@ -86,15 +97,12 @@
                 }
                     }else{
                         echo "Ihr Bild muss ein JPG image sein !";
-                    }*/
+                    }
 
-            $filetxt = $_POST['filenameEdit'];/* Die Text-Dateiname heisst jetzt einfach $filetxt statt $fileName da es unten für das Bild verwendet wird*/
-            $author = $_POST['author'];
-            $ueberschrift = $_POST['ueberschrift'];
-            $main = $_POST['message'];
-            $filenametxt = "textdocuments/".trim($filetxt,"textdocuments/.").".txt";
+            //Textdatei bearbeiten
+            $filenamePath = "textdocuments/".trim($filetxt,"textdocuments/.").".txt";
             $inhalt = date("d.m.Y, H:i")."|||".$ueberschrift."|||".$author."|||".$main;
-            file_put_contents($filenametxt, $inhalt);
+            file_put_contents($filenamePath, $inhalt);
  }
 ?>
         <footer>

@@ -1,11 +1,12 @@
 <?php
-$filename = $_GET['fileName'];
-unlink($filename);
+$filenameTXT = $_GET['filename'];
+//Löscht Text Datei
+unlink($filenameTXT);
 
-if (file_exists($filename)){
-    echo "Datei wurde nicht gelöscht";
-}
-else{
-    echo "Datei erfolgreich gelöscht!";
-}
+//Löscht Bild
+$filenameIMGtrim = trim($filenameTXT,"textdocuments/.txt");
+$filenameIMG = "images/".$filenameIMGtrim.".jpg";
+unlink($filenameIMG);
+
+header('Location: manage.php');
 ?>

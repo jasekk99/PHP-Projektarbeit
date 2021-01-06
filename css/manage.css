@@ -4,17 +4,15 @@ body{
     font-family: helvetica, sans-serif;
     margin: 0px;
 }
-#newsbox{
+.newsbox{
     border: black solid 3px;
     background-color: #95a5a6;
     margin: 1%;
     padding: 1%;
-    animation:moveUp 1s ease-in-out;
-    animation-fill-mode: forwards;  
     transition-property: box-shadow;
     transition-duration: 500ms;
 }
-#newsbox:hover{
+.newsbox:hover{
    box-shadow:
         0 2.8px 2.2px rgba(0, 0, 0, 0.034),
         0 6.7px 5.3px rgba(0, 0, 0, 0.048),
@@ -24,11 +22,6 @@ body{
         0 100px 80px rgba(0, 0, 0, 0.12);
 }
 
-@keyframes moveUp{
-    from{margin-top:50%;}
-    /*from{margin-left:-200px;margin-right:-200px;margin-bottom: 200px;}*/
-    to{margin:1%;}
-}
 @keyframes fadeGrey{
     from{background-color: white;}
     to{background-color: rgb(218, 218, 218);}
@@ -38,16 +31,20 @@ body{
     font-size: 50px;
     margin-left: 30px;
 }
-#ueberschrift{
+.ueberschrift{
     font-size:30px;
     color: #328D35;
     margin: 10px 0px;
 }
-#datum{
-    font-size:15px;
+.filename{
+    font-size: 12px;
+    color:rgb(75, 75, 75);
 }
-#author{
-    font-size:15px;
+.datum{
+    font-size:17px;
+}
+.author{
+    font-size:17px;
     display: inline;
 }
 #main{
@@ -62,17 +59,20 @@ img{
     animation-fill-mode: forwards;
     padding-top: 10px;
 }
-#edit, #delete{
+.edit, .delete{
     margin-right: 10px;
     padding: 10px 20px;
     border: solid 3px rgb(73, 73, 73);
     background: rgb(60, 60, 60);
     color: white;
-    border-radius: 0;
     transition: background-color 200ms;
 }
 
-#edit:hover, #delete:hover{
+.edit:hover, .delete:hover{
     background-color: rgb(80, 80, 80);
     cursor: pointer;
+}
+.imageManage{
+    margin: 20px 0px;
+    width: 120px
 }
